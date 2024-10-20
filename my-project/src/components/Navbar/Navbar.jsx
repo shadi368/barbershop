@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import logo from '../../assets/download.jpg';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,19 +14,18 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo and Brand */}
         <div className="flex items-center space-x-2">
-        <img src={logo} alt="Logo" className="h-8 w-8" />
-
+          <img src={logo} alt="Logo" className="h-8 w-8" />
           <span className="text-white font-bold text-xl">
-            <a href="/">Barber Shop</a>
+            <Link to="/">Barber Shop</Link>
           </span>
         </div>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-6">
-          <a href="#" className="text-white hover:text-gray-200">Home</a>
-          <a href="#" className="text-white hover:text-gray-200">About</a>
-          <a href="#" className="text-white hover:text-gray-200">Services</a>
-          <a href="#" className="text-white hover:text-gray-200">Contact</a>
+          <Link to="/home" className="text-white hover:text-gray-200">Home</Link>
+          <Link to="/about" className="text-white hover:text-gray-200">About</Link>
+          <Link to="/services" className="text-white hover:text-gray-200">Services</Link>
+          <Link to="/contact" className="text-white hover:text-gray-200">Contact</Link>
         </div>
 
         {/* Mobile Menu Toggle Button */}
@@ -51,10 +51,10 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div className={`md:hidden ${isOpen ? 'block' : 'hidden'}`}>
-        <a href="#" className="block text-white hover:bg-blue-700 p-2">Home</a>
-        <a href="#" className="block text-white hover:bg-blue-700 p-2">About</a>
-        <a href="#" className="block text-white hover:bg-blue-700 p-2">Services</a>
-        <a href="#" className="block text-white hover:bg-blue-700 p-2">Contact</a>
+        <Link to="/home" className="block text-white hover:bg-blue-700 p-2">Home</Link>
+        <Link to="/about" className="block text-white hover:bg-blue-700 p-2">About</Link>
+        <Link to="/services" className="block text-white hover:bg-blue-700 p-2">Services</Link>
+        <Link to="/contact" className="block text-white hover:bg-blue-700 p-2">Contact</Link>
       </div>
     </nav>
   );
